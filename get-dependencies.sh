@@ -10,7 +10,7 @@ pacman -Syu --noconfirm pipewire-audio pipewire-jack
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
-get-debloated-pkgs.sh --add-common
+get-debloated-pkgs --add-common
 
 echo "Building cemu..."
 echo "---------------------------------------------------------------"
