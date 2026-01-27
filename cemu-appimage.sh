@@ -1,32 +1,22 @@
 #!/bin/sh
 
-set -eux
+set -eu
 
-ARCH="$(uname -m)"
-URUNTIME="https://raw.githubusercontent.com/pkgforge-dev/Anylinux-AppImages/refs/heads/main/useful-tools/uruntime2appimage.sh"
-SHARUN="https://raw.githubusercontent.com/pkgforge-dev/Anylinux-AppImages/refs/heads/main/useful-tools/quick-sharun.sh"
-VERSION="$(cat ~/version)"
-
+ARCH=$(uname -m)
+VERSION=$(pacman -Q cemu | awk '{print $2; exit}') # example command to get version of application here
+export ARCH VERSION
+export OUTPATH=./dist
 export ADD_HOOKS="self-updater.bg.hook"
-export ICON=https://raw.githubusercontent.com/cemu-project/Cemu/refs/heads/main/dist/linux/info.cemu.Cemu.png
-export DESKTOP=https://raw.githubusercontent.com/cemu-project/Cemu/refs/heads/main/dist/linux/info.cemu.Cemu.desktop
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
+export ICON=/usr/share/pixmaps/cemu.png
+export DESKTOP=/usr/share/applications/cemu.desktop
 export DEPLOY_OPENGL=1
 export DEPLOY_VULKAN=1
-export OUTNAME=Cemu-"$VERSION"-anylinux-"$ARCH".AppImage
 
 # Deploy dependencies
-wget --retry-connrefused --tries=30 "$SHARUN" -O ./quick-sharun
-chmod +x ./quick-sharun
-./quick-sharun /usr/bin/cemu
+quick-sharun /usr/bin/cemu
 
-# MAKE APPIMAGE WITH URUNTIME
-wget --retry-connrefused --tries=30 "$URUNTIME" -O ./uruntime2appimage
-chmod +x ./uruntime2appimage
-./uruntime2appimage
+# Additional changes can be done in between here
 
-mkdir -p ./dist
-mv -v ./*.AppImage*  ./dist
-mv -v ~/version      ./dist
-
-echo "All Done!"
+# Turn AppDir into AppImage
+quick-sharun --make-appimage
