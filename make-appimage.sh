@@ -8,8 +8,8 @@ export ARCH VERSION
 export OUTPATH=./dist
 export ADD_HOOKS="self-updater.bg.hook:x86-64-v3-check.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
-export ICON=/usr/share/pixmaps/cemu.png
-export DESKTOP=/usr/share/applications/cemu.desktop
+export ICON=/usr/share/icons/hicolor/128x128/apps/info.cemu.Cemu.png
+export DESKTOP=/usr/share/applications/Cemu.desktop
 export DEPLOY_OPENGL=1
 export DEPLOY_VULKAN=1
 
