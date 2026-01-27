@@ -21,4 +21,4 @@ if [ "$ARCH" = 'x86_64' ]; then
 	cat /etc/makepkg.conf
 fi
 
-make-aur-package --archlinux-pkg cemu
+make-aur-package cemu
