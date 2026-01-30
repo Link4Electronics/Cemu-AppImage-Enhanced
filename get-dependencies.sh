@@ -17,7 +17,7 @@ echo "---------------------------------------------------------------"
 
 # build with x86_64_v3 target
 if [ "${DEVEL_RELEASE-}" = 1 ]; then
-	make-aur-package wxwidgets-gtk3-git
+	make-aur-package wxgtk-git
 	TARGET_V3_CPU=1 make-aur-package cemu-git
 else
 	TARGET_V3_CPU=1 make-aur-package cemu
