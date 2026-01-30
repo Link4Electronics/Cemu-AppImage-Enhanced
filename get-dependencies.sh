@@ -16,4 +16,8 @@ echo "Building cemu..."
 echo "---------------------------------------------------------------"
 
 # build with x86_64_v3 target
-TARGET_V3_CPU=1 make-aur-package cemu
+if [ "${DEVEL_RELEASE-}" = 1 ]; then
+	TARGET_V3_CPU=1 make-aur-package cemu-git
+else
+	TARGET_V3_CPU=1 make-aur-package cemu
+fi
