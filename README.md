@@ -11,9 +11,9 @@
 </p>
 
 
-| Latest Stable Release | Upstream URL |
-| :---: | :---: |
-| [Click here](https://github.com/pkgforge-dev/Cemu-AppImage-Enhanced/releases/latest) | [Click here](https://github.com/cemu-project/Cemu) |
+| Latest Stable Release | Latest Nightly Relase | Upstream URL |
+| :---: | :---: | :---: |
+| [Click here](https://github.com/pkgforge-dev/Cemu-AppImage-Enhanced/releases/latest) | [Click here](https://github.com/pkgforge-dev/Cemu-AppImage-Enhanced/releases/tag/nightly) | [Click here](https://github.com/cemu-project/Cemu) |
 
 Improved AppImage of cemu **independent of the host libc** which makes able to work on very very old distros as well as musl-libc distros like alpine linux. It is also **optimized for `x86-64-v3`** cpus giving a performance boost. 
 
